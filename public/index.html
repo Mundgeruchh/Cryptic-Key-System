@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <script src="https://quge5.com/88/tag.min.js" data-zone="282442" async data-cfasync="false"></script>
 <meta charset="utf-8">
@@ -8,40 +8,69 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="logo">Cryptic <span>Key System</span></div>
-  <div class="subtitle">Verify you're human, complete a few quick tasks, and get your key.</div>
 
-  <div class="steps">
-    <div class="step-dot" id="dot-0"></div>
-    <div class="step-dot" id="dot-1"></div>
-    <div class="step-dot" id="dot-2"></div>
-    <div class="step-dot" id="dot-3"></div>
-  </div>
+<div class="page-layout">
 
-  <div class="card" id="stage-verify">
-    <h2>1. Human Verification</h2>
-    <div id="turnstile-container" style="margin-bottom:16px;"></div>
-    <div class="error" id="verify-error"></div>
-  </div>
-
-  <div class="card" id="stage-ads" style="display:none;">
-    <h2 id="ad-title">2. Complete the task</h2>
-    <div class="ad-slot" id="ad-slot">
-      An ad has opened in a new tab. Solve the task below while you wait.
+  <aside class="ad-rail ad-rail-left">
+    <div class="ad-placeholder">
+      <!-- Paste a Monetag banner/native zone snippet here -->
+      Ad space
     </div>
-    <button id="ad-continue-btn" disabled>Complete the task above</button>
-    <div class="error" id="ad-error"></div>
-  </div>
+  </aside>
 
-  <div class="card" id="stage-key" style="display:none;">
-    <h2>🎉 Your Key</h2>
-    <div class="key-box" id="key-value">...</div>
-    <button id="copy-btn">Copy key</button>
-    <div class="success-text" id="copy-msg" style="margin-top:10px;"></div>
-  </div>
+  <main class="wrap">
+    <div class="logo">Cryptic <span>Key System</span></div>
+    <div class="subtitle">Verify you're human, complete a few quick tasks, and get your key.</div>
 
-  <div class="footer">Cryptic Key System</div>
+    <div class="steps">
+      <div class="step-dot" id="dot-0"></div>
+      <div class="step-dot" id="dot-1"></div>
+      <div class="step-dot" id="dot-2"></div>
+      <div class="step-dot" id="dot-3"></div>
+    </div>
+
+    <div class="card" id="stage-verify">
+      <h2>1. Human Verification</h2>
+      <div id="turnstile-container" style="margin-bottom:16px;"></div>
+      <div class="error" id="verify-error"></div>
+    </div>
+
+    <div class="card" id="stage-ads" style="display:none;">
+      <h2 id="ad-title">2. Complete the task</h2>
+      <div class="ad-slot" id="ad-slot">
+        An ad has opened in a new tab. Solve the task below while you wait.
+      </div>
+      <button id="ad-continue-btn" disabled>Complete the task above</button>
+      <div class="error" id="ad-error"></div>
+    </div>
+
+    <div class="card" id="stage-key" style="display:none;">
+      <h2>🎉 Your Key</h2>
+      <div class="key-box" id="key-value">...</div>
+      <button id="copy-btn">Copy key</button>
+      <div class="success-text" id="copy-msg" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="ad-placeholder ad-placeholder-inline">
+      <!-- Paste a Monetag banner/native zone snippet here -->
+      Ad space
+    </div>
+
+    <div class="footer">Cryptic Key System</div>
+  </main>
+
+  <aside class="ad-rail ad-rail-right">
+    <div class="ad-placeholder">
+      <!-- Paste a Monetag banner/native zone snippet here -->
+      Ad space
+    </div>
+  </aside>
+
+</div>
+
+<div class="ad-placeholder ad-placeholder-bottom">
+  <!-- Paste a Monetag banner/native zone snippet here -->
+  Ad space
 </div>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

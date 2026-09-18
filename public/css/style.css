@@ -168,3 +168,43 @@ input[type=text],input[type=password],input[type=file]{
 .emoji-cell-btn:hover{background:#ffffff1c;}
 .emoji-cell-btn.picked{opacity:.4;}
 .task-feedback{text-align:center;font-size:13px;color:var(--muted);min-height:16px;}
+
+/* ---------- Page layout with ad rails ---------- */
+.page-layout{
+  display:flex;
+  width:100%;
+  max-width:1100px;
+  gap:20px;
+  justify-content:center;
+  align-items:flex-start;
+}
+.ad-rail{
+  width:160px;
+  flex:none;
+  position:sticky;
+  top:40px;
+  display:none;
+}
+@media (min-width:1000px){
+  .ad-rail{ display:block; }
+}
+.ad-placeholder{
+  background:#0f0a1c;
+  border:1px dashed #ffffff2a;
+  border-radius:12px;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+}
+.ad-rail .ad-placeholder{ min-height:400px; }
+.ad-placeholder-inline{ min-height:90px; margin-bottom:16px; }
+.ad-placeholder-bottom{
+  min-height:90px;
+  width:100%;
+  max-width:728px;
+  margin:30px auto 0;
+}

@@ -17,20 +17,23 @@ export function randomId(len = 24) {
   return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-export async function getAvailableKeys(env) {
-  const raw = await env.KV.get("available_keys");
+// All keys are stored as one array of { key, status } objects under "keys_list".
+// status is "available" or "used".
+
+export async function getAllKeys(env) {
+  const raw = await env.KV.get("keys_list");
   return raw ? JSON.parse(raw) : [];
 }
 
-export async function setAvailableKeys(env, arr) {
-  await env.KV.put("available_keys", JSON.stringify(arr));
+export async function setAllKeys(env, arr) {
+  await env.KV.put("keys_list", JSON.stringify(arr));
 }
 
 export async function getStats(env) {
-  const available = await getAvailableKeys(env);
-  const usedCount = parseInt((await env.KV.get("used_count")) || "0", 10);
-  const totalEver = parseInt((await env.KV.get("total_ever")) || "0", 10);
-  return { available: available.length, used: usedCount, totalEver };
+  const all = await getAllKeys(env);
+  const available = all.filter((k) => k.status === "available").length;
+  const used = all.filter((k) => k.status === "used").length;
+  return { available, used, totalEver: all.length };
 }
 
 export function checkAdminAuth(request, env) {
