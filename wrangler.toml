@@ -1,0 +1,13 @@
+name = "cryptic-key-system"
+pages_build_output_dir = "public"
+compatibility_date = "2026-09-18"
+
+# Nur relevant für lokale Tests mit "wrangler pages dev".
+# Im Cloudflare-Dashboard (GitHub-Deploy) werden KV-Binding und Variablen
+# stattdessen unter Settings gesetzt (siehe README).
+kv_namespaces = [
+  { binding = "KV", id = "15532578ec2e44b7baa5b20d6294e33d" }
+]
+
+[vars]
+TURNSTILE_SITEKEY = "0x4AAAAAAE7iqGCztCrwijja"

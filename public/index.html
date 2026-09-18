@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cryptic Key System</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">Cryptic <span>Key System</span></div>
+  <div class="subtitle">Bestätige, dass du kein Bot bist, schau dir kurz Werbung an und erhalte deinen Key.</div>
+
+  <div class="steps">
+    <div class="step-dot" id="dot-0"></div>
+    <div class="step-dot" id="dot-1"></div>
+    <div class="step-dot" id="dot-2"></div>
+    <div class="step-dot" id="dot-3"></div>
+  </div>
+
+  <div class="card" id="stage-verify">
+    <h2>1. Bot-Bestätigung</h2>
+    <div id="turnstile-container" style="margin-bottom:16px;"></div>
+    <div class="error" id="verify-error"></div>
+  </div>
+
+  <div class="card" id="stage-ads" style="display:none;">
+    <h2 id="ad-title">2. Werbung ansehen</h2>
+    <div class="ad-slot" id="ad-slot">
+      <!-- HIER dein Ad-Network Script/Direct-Link einbauen -->
+      Werbeplatz (Platzhalter) — hier kommt dein Ad-Network Code rein
+    </div>
+    <div class="timer" id="ad-timer">20</div>
+    <button id="ad-continue-btn" disabled>Warte...</button>
+    <div class="error" id="ad-error"></div>
+  </div>
+
+  <div class="card" id="stage-key" style="display:none;">
+    <h2>🎉 Dein Key</h2>
+    <div class="key-box" id="key-value">...</div>
+    <button id="copy-btn">Key kopieren</button>
+    <div class="success-text" id="copy-msg" style="margin-top:10px;"></div>
+  </div>
+
+  <div class="footer">Cryptic Key System</div>
+</div>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

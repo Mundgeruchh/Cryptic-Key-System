@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Cryptic Key System</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">Cryptic <span>Admin</span></div>
+
+  <div class="card" id="login-card">
+    <h2>Admin-Login</h2>
+    <input type="password" id="pass" placeholder="Admin-Passwort">
+    <button id="login-btn">Einloggen</button>
+    <div class="error" id="login-error"></div>
+  </div>
+
+  <div id="panel" style="display:none;">
+    <div class="card">
+      <h2>Statistik</h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="num" id="stat-available">-</div><div class="label">Verfügbar</div></div>
+        <div class="stat"><div class="num" id="stat-used">-</div><div class="label">Verbraucht</div></div>
+        <div class="stat"><div class="num" id="stat-total">-</div><div class="label">Gesamt jemals</div></div>
+      </div>
+      <button id="refresh-btn">Aktualisieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Neue Keys hochladen (.txt, 1 Key pro Zeile)</h2>
+      <input type="file" id="file-input" accept=".txt">
+      <button id="upload-btn">Hochladen</button>
+      <div class="error" id="upload-error"></div>
+      <div class="success-text" id="upload-success"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>
