@@ -73,7 +73,8 @@ function renderPatternTask(container, onSolved) {
   const options = shuffle([base, filler, EMOJI_POOL[(EMOJI_POOL.indexOf(base) + 3) % EMOJI_POOL.length]]);
 
   container.innerHTML = `
-    <div class="task-title">Click the emoji that completes the pattern</div>
+    <div class="task-title">Complete the pattern</div>
+    <div class="task-subtitle">One emoji is repeated in a row, except one spot is empty. Pick the emoji that belongs in the empty spot.</div>
     <div class="emoji-row">
       ${sequence.map((e) => `<div class="emoji-cell ${e === null ? "empty" : ""}">${e ?? "?"}</div>`).join("")}
     </div>
@@ -102,7 +103,8 @@ function renderOddOneOutTask(container, onSolved) {
   const cells = shuffle(Array(8).fill(common).concat([odd]));
 
   container.innerHTML = `
-    <div class="task-title">Click the odd emoji out</div>
+    <div class="task-title">Find the odd one out</div>
+    <div class="task-subtitle">One emoji in the grid below is different from all the others. Click on it.</div>
     <div class="emoji-grid">
       ${cells.map((e) => `<button class="emoji-cell-btn" data-val="${e}">${e}</button>`).join("")}
     </div>
@@ -126,7 +128,8 @@ function renderFindTask(container, onSolved) {
   const cells = shuffle([target, ...distractors]);
 
   container.innerHTML = `
-    <div class="task-title">Find and click this emoji:</div>
+    <div class="task-title">Find the matching emoji</div>
+    <div class="task-subtitle">Remember the emoji shown above, then click the same one in the grid below.</div>
     <div class="emoji-row">
       <div class="emoji-cell">${target}</div>
     </div>

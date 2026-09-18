@@ -83,13 +83,15 @@ input[type=text],input[type=password],input[type=file]{
   border-radius:14px;
   min-height:220px;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   color:var(--muted);
   font-size:13px;
   text-align:center;
   margin-bottom:18px;
-  padding:16px;
+  padding:20px 16px;
+  gap:6px;
 }
 .timer{
   text-align:center;
@@ -126,22 +128,23 @@ input[type=text],input[type=password],input[type=file]{
 .stat .label{font-size:11px;color:var(--muted);margin-top:4px;}
 .footer{margin-top:20px;text-align:center;font-size:12px;color:var(--muted);}
 
-.task-title{font-size:14px;color:var(--muted);margin-bottom:14px;text-align:center;}
-.emoji-row{display:flex;gap:8px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;}
+.task-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;text-align:center;}
+.task-subtitle{font-size:13px;color:var(--muted);margin-bottom:16px;text-align:center;}
+.emoji-row{display:flex;gap:12px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
 .emoji-cell{
-  width:46px;height:46px;
+  width:52px;height:52px;
   display:flex;align-items:center;justify-content:center;
-  font-size:22px;
+  font-size:24px;
   background:#ffffff08;
   border:1px solid #ffffff1a;
   border-radius:10px;
 }
 .emoji-cell.empty{border:1px dashed var(--purple);color:var(--purple-light);font-weight:700;}
-.emoji-options{display:flex;gap:10px;justify-content:center;margin-bottom:8px;flex-wrap:wrap;}
+.emoji-options{display:flex;gap:14px;justify-content:center;margin-bottom:8px;flex-wrap:wrap;}
 .emoji-option{
   width:auto;flex:none;
-  padding:10px 16px;
-  font-size:22px;
+  padding:12px 20px;
+  font-size:24px;
   background:#ffffff10;
   border:1px solid #ffffff22;
 }
@@ -155,19 +158,20 @@ input[type=text],input[type=password],input[type=file]{
 .emoji-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  gap:14px;
   margin-bottom:12px;
+  max-width:260px;
 }
 .emoji-cell-btn{
   aspect-ratio:1;
-  font-size:24px;
+  font-size:26px;
   background:#ffffff08;
   border:1px solid #ffffff1a;
   padding:0;
 }
 .emoji-cell-btn:hover{background:#ffffff1c;}
 .emoji-cell-btn.picked{opacity:.4;}
-.task-feedback{text-align:center;font-size:13px;color:var(--muted);min-height:16px;}
+.task-feedback{text-align:center;font-size:13px;color:var(--muted);min-height:16px;margin-top:6px;}
 
 /* ---------- Page layout with ad rails ---------- */
 .page-layout{
