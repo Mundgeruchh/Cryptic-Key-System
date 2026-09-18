@@ -25,7 +25,7 @@ export async function onRequestPost({ request, env }) {
   const sessionId = randomId();
   await env.KV.put(
     "session:" + sessionId,
-    JSON.stringify({ steps: 0, claimed: false }),
+    JSON.stringify({ steps: 0, claimed: false, createdAt: Date.now() }),
     { expirationTtl: SESSION_TTL }
   );
   return json({ sessionId });

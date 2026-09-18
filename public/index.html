@@ -7,74 +7,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cryptic Key System</title>
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/choice.css">
 </head>
 <body>
 
 <div class="page-layout">
 
   <aside class="ad-rail ad-rail-left">
-    <div class="ad-placeholder">
-      <!-- Paste a Monetag banner/native zone snippet here -->
-      Ad space
-    </div>
+    <div class="ad-placeholder">Ad space</div>
   </aside>
 
   <main class="wrap">
     <div class="logo">Cryptic <span>Key System</span></div>
-    <div class="subtitle">Verify you're human, complete a few quick tasks, and get your key.</div>
+    <div class="subtitle">Choose how you'd like to get your key.</div>
 
-    <div class="steps">
-      <div class="step-dot" id="dot-0"></div>
-      <div class="step-dot" id="dot-1"></div>
-      <div class="step-dot" id="dot-2"></div>
-      <div class="step-dot" id="dot-3"></div>
+    <div class="choice-grid">
+
+      <a class="choice-card" href="https://jnkie.com/get-key/cryptic" target="_blank" rel="noopener">
+        <div class="choice-icon">⚡</div>
+        <h2>Jnkie Key System</h2>
+        <p>Get your key through Linkvertise, Work Ink, or Lootlabs — powered by Jnkie.</p>
+        <span class="choice-btn">Continue with Jnkie →</span>
+      </a>
+
+      <a class="choice-card" href="/generate.html">
+        <div class="choice-icon">🔮</div>
+        <h2>Cryptic Key System</h2>
+        <p>Verify you're human, complete a few quick tasks on this site, and get your key.</p>
+        <span class="choice-btn">Continue here →</span>
+      </a>
+
     </div>
 
-    <div class="card" id="stage-verify">
-      <h2>1. Human Verification</h2>
-      <div id="turnstile-container" style="margin-bottom:16px;"></div>
-      <div class="error" id="verify-error"></div>
-    </div>
-
-    <div class="card" id="stage-ads" style="display:none;">
-      <h2 id="ad-title">2. Complete the task</h2>
-      <div class="ad-slot" id="ad-slot">
-        An ad has opened in a new tab. Solve the task below while you wait.
-      </div>
-      <button id="ad-continue-btn" disabled>Complete the task above</button>
-      <div class="error" id="ad-error"></div>
-    </div>
-
-    <div class="card" id="stage-key" style="display:none;">
-      <h2>🎉 Your Key</h2>
-      <div class="key-box" id="key-value">...</div>
-      <button id="copy-btn">Copy key</button>
-      <div class="success-text" id="copy-msg" style="margin-top:10px;"></div>
-    </div>
-
-    <div class="ad-placeholder ad-placeholder-inline">
-      <!-- Paste a Monetag banner/native zone snippet here -->
-      Ad space
-    </div>
+    <div class="ad-placeholder ad-placeholder-inline">Ad space</div>
 
     <div class="footer">Cryptic Key System</div>
   </main>
 
   <aside class="ad-rail ad-rail-right">
-    <div class="ad-placeholder">
-      <!-- Paste a Monetag banner/native zone snippet here -->
-      Ad space
-    </div>
+    <div class="ad-placeholder">Ad space</div>
   </aside>
 
 </div>
 
-<div class="ad-placeholder ad-placeholder-bottom">
-  <!-- Paste a Monetag banner/native zone snippet here -->
-  Ad space
-</div>
+<div class="ad-placeholder ad-placeholder-bottom">Ad space</div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="/js/main.js"></script>
 </body>
 </html>

@@ -40,3 +40,25 @@ export function checkAdminAuth(request, env) {
   const pass = request.headers.get("X-Admin-Pass") || "";
   return Boolean(env.ADMIN_PASS) && pass === env.ADMIN_PASS;
 }
+
+// ---------- Discord webhook logging ----------
+
+export async function sendDiscordEmbeds(env, embeds) {
+  if (!env.KEY_LOGS) return; // webhook not configured, silently skip
+  try {
+    await fetch(env.KEY_LOGS, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ embeds }),
+    });
+  } catch (e) {
+    // Never let a webhook failure break key issuance
+  }
+}
+
+export function formatDuration(ms) {
+  const totalSeconds = Math.round(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+}
