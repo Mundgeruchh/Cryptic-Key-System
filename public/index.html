@@ -10,7 +10,7 @@
 <body>
 <div class="wrap">
   <div class="logo">Cryptic <span>Key System</span></div>
-  <div class="subtitle">Bestätige, dass du kein Bot bist, schau dir kurz Werbung an und erhalte deinen Key.</div>
+  <div class="subtitle">Verify you're human, complete a few quick tasks, and get your key.</div>
 
   <div class="steps">
     <div class="step-dot" id="dot-0"></div>
@@ -20,25 +20,24 @@
   </div>
 
   <div class="card" id="stage-verify">
-    <h2>1. Bot-Bestätigung</h2>
+    <h2>1. Human Verification</h2>
     <div id="turnstile-container" style="margin-bottom:16px;"></div>
     <div class="error" id="verify-error"></div>
   </div>
 
   <div class="card" id="stage-ads" style="display:none;">
-    <h2 id="ad-title">2. Werbung ansehen</h2>
+    <h2 id="ad-title">2. Complete the task</h2>
     <div class="ad-slot" id="ad-slot">
-      An ad has opened in a new tab. Please view it, then come back here and wait for the timer.
+      An ad has opened in a new tab. Solve the task below while you wait.
     </div>
-    <div class="timer" id="ad-timer">20</div>
-    <button id="ad-continue-btn" disabled>Warte...</button>
+    <button id="ad-continue-btn" disabled>Complete the task above</button>
     <div class="error" id="ad-error"></div>
   </div>
 
   <div class="card" id="stage-key" style="display:none;">
-    <h2>🎉 Dein Key</h2>
+    <h2>🎉 Your Key</h2>
     <div class="key-box" id="key-value">...</div>
-    <button id="copy-btn">Key kopieren</button>
+    <button id="copy-btn">Copy key</button>
     <div class="success-text" id="copy-msg" style="margin-top:10px;"></div>
   </div>
 
