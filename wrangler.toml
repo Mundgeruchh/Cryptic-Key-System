@@ -4,7 +4,7 @@ compatibility_date = "2026-09-18"
 
 # Nach dem Erstellen der KV-Namespaces (siehe README) hier die IDs eintragen:
 kv_namespaces = [
-  { binding = "KV", id = "REPLACE_WITH_YOUR_KV_ID" }
+  { binding = "KV", id = "15532578ec2e44b7baa5b20d6294e33d" }
 ]
 
 # Diese Werte werden NICHT hier eingetragen, sondern als Secrets gesetzt
@@ -12,4 +12,4 @@ kv_namespaces = [
 #
 # Diesen Wert kannst du normal als Variable setzen (ist öffentlich, kein Geheimnis):
 [vars]
-TURNSTILE_SITEKEY = "REPLACE_WITH_YOUR_TURNSTILE_SITEKEY"
+TURNSTILE_SITEKEY = "0x4AAAAAAE7iqGCztCrwijja"
