@@ -1,5 +1,6 @@
 const AD_WAIT_SECONDS = 20;
 const AD_STEPS_REQUIRED = 3;
+const DIRECT_LINK = "https://omg10.com/4/11830115";
 
 let sessionId = null;
 let currentStep = 0;
@@ -54,6 +55,9 @@ function startAdStep() {
   setDot(currentStep, "active");
   document.getElementById("ad-title").textContent =
     "2. Werbung ansehen (" + currentStep + "/" + AD_STEPS_REQUIRED + ")";
+
+  // Direct-Link-Werbung: öffnet sich in einem neuen Tab, während der Timer hier läuft
+  window.open(DIRECT_LINK, "_blank");
 
   const btn = document.getElementById("ad-continue-btn");
   btn.disabled = true;
