@@ -1,0 +1,15 @@
+name = "cryptic-key-system"
+main = "src/index.js"
+compatibility_date = "2026-09-18"
+
+# Nach dem Erstellen der KV-Namespaces (siehe README) hier die IDs eintragen:
+kv_namespaces = [
+  { binding = "KV", id = "REPLACE_WITH_YOUR_KV_ID" }
+]
+
+# Diese Werte werden NICHT hier eingetragen, sondern als Secrets gesetzt
+# (siehe README): ADMIN_PASS, TURNSTILE_SECRET
+#
+# Diesen Wert kannst du normal als Variable setzen (ist öffentlich, kein Geheimnis):
+[vars]
+TURNSTILE_SITEKEY = "REPLACE_WITH_YOUR_TURNSTILE_SITEKEY"
