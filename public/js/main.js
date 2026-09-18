@@ -120,48 +120,34 @@ function renderOddOneOutTask(container, onSolved) {
   });
 }
 
-function renderMemoryTask(container, onSolved) {
-  const chosen = shuffle(EMOJI_POOL).slice(0, 4);
-  const gridEmojis = shuffle(chosen.concat(shuffle(EMOJI_POOL.filter((e) => !chosen.includes(e))).slice(0, 4)));
-  let clickedOrder = [];
+function renderFindTask(container, onSolved) {
+  const target = EMOJI_POOL[Math.floor(Math.random() * EMOJI_POOL.length)];
+  const distractors = shuffle(EMOJI_POOL.filter((e) => e !== target)).slice(0, 5);
+  const cells = shuffle([target, ...distractors]);
 
   container.innerHTML = `
-    <div class="task-title">Memorize the order, then click them in the same order</div>
-    <div class="emoji-row" id="memory-preview">
-      ${chosen.map((e) => `<div class="emoji-cell">${e}</div>`).join("")}
+    <div class="task-title">Find and click this emoji:</div>
+    <div class="emoji-row">
+      <div class="emoji-cell">${target}</div>
     </div>
-    <div class="task-feedback" id="task-feedback">Memorizing...</div>
+    <div class="emoji-grid" style="grid-template-columns:repeat(3,1fr);">
+      ${cells.map((e) => `<button class="emoji-cell-btn" data-val="${e}">${e}</button>`).join("")}
+    </div>
+    <div class="task-feedback" id="task-feedback"></div>
   `;
 
-  setTimeout(() => {
-    document.getElementById("memory-preview").innerHTML = chosen.map(() => `<div class="emoji-cell empty">?</div>`).join("");
-    document.getElementById("task-feedback").textContent = "Now click the emojis in the order you saw them.";
-
-    const grid = document.createElement("div");
-    grid.className = "emoji-grid";
-    grid.innerHTML = gridEmojis.map((e) => `<button class="emoji-cell-btn" data-val="${e}">${e}</button>`).join("");
-    container.appendChild(grid);
-
-    grid.querySelectorAll(".emoji-cell-btn").forEach((btn) => {
-      btn.onclick = () => {
-        clickedOrder.push(btn.dataset.val);
-        btn.disabled = true;
-        btn.classList.add("picked");
-        const expected = chosen[clickedOrder.length - 1];
-        if (btn.dataset.val !== expected) {
-          document.getElementById("task-feedback").textContent = "Wrong order — restarting task.";
-          setTimeout(() => renderMemoryTask(container, onSolved), 900);
-          return;
-        }
-        if (clickedOrder.length === chosen.length) {
-          onSolved();
-        }
-      };
-    });
-  }, 2200);
+  container.querySelectorAll(".emoji-cell-btn").forEach((btn) => {
+    btn.onclick = () => {
+      if (btn.dataset.val === target) {
+        onSolved();
+      } else {
+        document.getElementById("task-feedback").textContent = "Not this one, try again.";
+      }
+    };
+  });
 }
 
-const TASKS = [renderPatternTask, renderOddOneOutTask, renderMemoryTask];
+const TASKS = [renderPatternTask, renderOddOneOutTask, renderFindTask];
 
 function startAdStep() {
   currentStep++;
@@ -178,10 +164,7 @@ function startAdStep() {
   btn.textContent = "Complete the task above";
 
   const taskFn = TASKS[(currentStep - 1) % TASKS.length];
-  taskFn(container, () => {
-    btn.disabled = false;
-    btn.textContent = currentStep < AD_STEPS_REQUIRED ? "Continue" : "Get my key";
-  });
+  taskFn(container, () => startPostTaskCountdown(btn, currentStep));
 
   btn.onclick = async () => {
     btn.disabled = true;
@@ -204,6 +187,24 @@ function startAdStep() {
       btn.disabled = false;
     }
   };
+}
+
+const POST_TASK_WAIT_SECONDS = 5;
+
+function startPostTaskCountdown(btn, step) {
+  let remaining = POST_TASK_WAIT_SECONDS;
+  btn.disabled = true;
+  btn.textContent = "Please wait " + remaining + "s...";
+  const iv = setInterval(() => {
+    remaining--;
+    if (remaining <= 0) {
+      clearInterval(iv);
+      btn.disabled = false;
+      btn.textContent = step < AD_STEPS_REQUIRED ? "Continue" : "Get my key";
+    } else {
+      btn.textContent = "Please wait " + remaining + "s...";
+    }
+  }, 1000);
 }
 
 async function claimKey() {
