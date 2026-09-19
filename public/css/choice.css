@@ -1,7 +1,7 @@
 .choice-grid{
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:14px;
   margin-bottom:20px;
 }
 .choice-card{
@@ -13,11 +13,11 @@
   text-decoration:none;
   color:var(--text);
   background:var(--card);
-  border:1px solid #ffffff14;
-  border-radius:18px;
-  padding:28px 24px;
-  box-shadow:0 10px 40px #00000055;
-  transition:transform .15s, border-color .15s;
+  border:1px solid #ffffff12;
+  border-radius:14px;
+  padding:26px 24px;
+  box-shadow:0 10px 30px #00000080;
+  transition:transform .15s, border-color .15s, box-shadow .15s;
 }
 .choice-tag{
   position:absolute;
@@ -29,22 +29,29 @@
   text-transform:uppercase;
   padding:4px 10px;
   border-radius:999px;
-  background:linear-gradient(135deg,var(--success),#10b981);
-  color:#062e22;
+  background:#0a0a0c;
+  border:1px solid var(--success);
+  color:var(--success);
+}
+.choice-card.pro .choice-tag{
+  border-color:var(--purple);
+  color:var(--purple-light);
 }
 .choice-card:hover{
   transform:translateY(-3px);
   border-color:var(--purple);
+  box-shadow:0 0 24px #ff2fb84d;
 }
-.choice-icon{font-size:34px;margin-bottom:10px;}
-.choice-card h2{margin:0 0 8px;font-size:18px;}
+.choice-card h2{margin:0 0 8px;font-size:18px;font-weight:700;}
 .choice-card p{margin:0 0 18px;font-size:13px;color:var(--muted);line-height:1.5;}
 .choice-btn{
   display:inline-block;
   padding:12px 22px;
-  border-radius:12px;
+  border-radius:10px;
   font-size:14px;
   font-weight:700;
-  background:linear-gradient(135deg,var(--purple),var(--purple-dark));
-  color:white;
+  border:1px solid var(--purple);
+  background:#150010;
+  color:var(--purple-light);
+  box-shadow:0 0 14px #ff2fb84d;
 }
